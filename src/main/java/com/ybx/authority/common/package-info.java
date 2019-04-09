@@ -1,0 +1,1 @@
+package com.ybx.authority.common;
