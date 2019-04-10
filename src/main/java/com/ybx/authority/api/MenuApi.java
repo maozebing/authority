@@ -3,7 +3,6 @@ package com.ybx.authority.api;
 import com.ybx.authority.common.viewentity.ViewMenu;
 import com.ybx.authority.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +17,7 @@ public class MenuApi {
 
     @GetMapping
     public ResponseEntity<List<ViewMenu>> listMenu() {
-        return new ResponseEntity(menuService.listMenu(), HttpStatus.OK);
+        return ResponseEntity.ok(menuService.listMenu());
     }
 
 }

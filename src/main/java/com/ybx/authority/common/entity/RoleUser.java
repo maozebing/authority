@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Setter
 public class RoleUser {
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Basic

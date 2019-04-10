@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 public class Menu {
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Basic
@@ -31,8 +31,8 @@ public class Menu {
     @Column(name = "parent")
     private String parent;
     @Basic
-    @Column(name = "describe")
-    private String describe;
+    @Column(name = "describes")
+    private String describes;
     @Basic
     @Column(name = "actions")
     private String actions;

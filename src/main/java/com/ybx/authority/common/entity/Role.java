@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 public class Role {
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Basic
@@ -22,8 +22,8 @@ public class Role {
     @Column(name = "name")
     private String name;
     @Basic
-    @Column(name = "describe")
-    private String describe;
+    @Column(name = "describes")
+    private String describes;
     @Basic
     @Column(name = "is_deleted")
     private boolean deleted;

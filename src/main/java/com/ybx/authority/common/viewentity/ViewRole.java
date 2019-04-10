@@ -7,15 +7,13 @@ import java.util.List;
 
 @Getter
 @Setter
-public class ViewMenu {
+public class ViewRole {
+
     private long id;
     private String code;
     private String name;
-    private String icon;
-    private boolean leaf;
-    private String parent;
     private String describes;
-    private String[] actions;
-    private List<ViewAction> actionsData;
     private boolean deleted;
+    private List<ViewPermission> permissions;
+
 }
