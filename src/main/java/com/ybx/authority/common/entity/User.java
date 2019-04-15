@@ -22,8 +22,8 @@ public class User {
     @Column(name = "name")
     private String name;
     @Basic
-    @Column(name = "passward")
-    private String passward;
+    @Column(name = "password")
+    private String password;
     @Basic
     @Column(name = "is_man")
     private boolean man;

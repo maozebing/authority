@@ -12,7 +12,7 @@ public class ViewUser {
     private long id;
     private String code;
     private String name;
-    private String passward;
+    private String password;
     private boolean man;
     private String phone;
     private String email;

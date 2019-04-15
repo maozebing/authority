@@ -1,0 +1,59 @@
+package com.ybx.authority.common.utils;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 描述 ：token工具类
+ *
+ * @author : maozebing
+ * @version : v1.00
+ * @CreationDate : 16-6-12 下午13:50
+ * @Description :
+ * @update : 修改人，修改时间，修改内容
+ * @see :[相关类/方法]
+ */
+public class TokenUtil {
+
+    private static final String SECRET="jxxm.monitor";
+    private static final String ISSUER="www.rhea.com";
+
+    public static String createToken(String userId) throws Exception{
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("alg", "HS256");
+        map.put("typ", "JWT");
+
+        Calendar calendar = Calendar.getInstance();
+        Date iat=calendar.getTime();
+
+        String token = JWT.create()
+                .withHeader(map)//header
+                .withIssuer(ISSUER)
+                .withAudience(userId)
+                .sign(Algorithm.HMAC256(SECRET));//加密
+        return token;
+    }
+
+    public static boolean verifyToken(String token) {
+        try{
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
+            DecodedJWT jwt = verifier.verify(token);
+            String iss=jwt.getClaims().get("iss").asString();
+            if (ISSUER.equals(iss)){
+                return true;
+            }else {
+                return false;
+            }
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+}

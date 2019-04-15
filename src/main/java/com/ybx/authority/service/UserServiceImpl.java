@@ -3,6 +3,7 @@ package com.ybx.authority.service;
 import com.ybx.authority.common.entity.Role;
 import com.ybx.authority.common.entity.RoleUser;
 import com.ybx.authority.common.entity.User;
+import com.ybx.authority.common.utils.Md5Util;
 import com.ybx.authority.common.viewentity.ViewRole;
 import com.ybx.authority.common.viewentity.ViewUser;
 import com.ybx.authority.dao.RoleDao;
@@ -70,6 +71,7 @@ public class UserServiceImpl implements UserService {
     public void addUser(ViewUser viewUser) {
         User user=new User();
         BeanUtils.copyProperties(viewUser,user);
+        user.setPassword(Md5Util.encode("123456"));
         Date date=new Date();
         user.setCreate(date);
         user.setModified(date);
